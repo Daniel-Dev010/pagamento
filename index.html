@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Comprar Key</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f0f0f;
+      color: #fff;
+      text-align: center;
+    }
+
+    .container {
+      padding: 20px;
+      max-width: 500px;
+      margin: auto;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    .tutorial {
+      text-align: left;
+      background: #1a1a1a;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .btn-comprar {
+      background: #00c853;
+      color: #fff;
+    }
+
+    .btn-whatsapp {
+      background: #25D366;
+      color: #fff;
+    }
+
+    .btn-telegram {
+      background: #0088cc;
+      color: #fff;
+    }
+
+    .section-title {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+
+    /* CARROSSEL */
+    .carousel {
+      margin-top: 30px;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    .carousel img {
+      width: 100%;
+      display: none;
+    }
+
+    .carousel img.active {
+      display: block;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1 id="title"></h1>
+
+  <div class="tutorial" id="tutorial"></div>
+
+  <button class="btn btn-comprar" id="btnComprar" onclick="comprar()"></button>
+
+  <div class="section-title" id="txtWhatsapp"></div>
+  <button class="btn btn-whatsapp" id="btnWhatsapp" onclick="whatsapp()"></button>
+
+  <div class="section-title" id="txtTelegram"></div>
+  <button class="btn btn-telegram" id="btnTelegram" onclick="telegram()"></button>
+
+  <!-- TEXTO -->
+  <div class="section-title" id="arraste"></div>
+
+  <!-- CARROSSEL (AGORA DENTRO DO CONTAINER) -->
+  <div class="carousel">
+    <img src="img1.jpg" class="active">
+    <img src="img2.jpg">
+    <img src="img3.jpg">
+    <img src="img4.jpg">
+    <img src="img5.jpg">
+    <img src="img6.jpg">
+  </div>
+
+</div>
+
+<script>
+  // DETECTA IDIOMA
+  const lang = navigator.language.startsWith("pt") ? "pt" : "en";
+
+  const textos = {
+    pt: {
+      title: "Como comprar sua Key",
+      tutorial: `
+        <p>1 Clique em "Comprar Key"</p>
+        <p>2 Entre na tela de pagamento e efetue o pagamento</p>
+        <p>3 Salve o comprovante</p>
+        <p>4 Volte para a tela principal e escolha uma das opções:</p>
+        <p>- Mandar comprovante via WhatsApp</p>
+        <p>- Mandar comprovante via Telegram</p>
+        <p>5 Escolha um botão e mande o comprovante</p>
+        <p>6 Após enviar, em alguns segundos ou minutos você receberá sua Key</p>
+      `,
+      btnComprar: "Comprar Key",
+      txtWhatsapp: "Mandar comprovante via WhatsApp",
+      btnWhatsapp: "Enviar",
+      txtTelegram: "Mandar comprovante via Telegram",
+      btnTelegram: "Enviar",
+      arraste: "👆 Arraste para o lado para ver mais"
+    },
+
+    en: {
+      title: "How to buy your Key",
+      tutorial: `
+        <p>1 Click on "Buy Key"</p>
+        <p>2 Go to the payment screen and complete the purchase</p>
+        <p>3 Save the receipt</p>
+        <p>4 Go back and choose one option:</p>
+        <p>- Send receipt via WhatsApp</p>
+        <p>- Send receipt via Telegram</p>
+        <p>5 Click a button and send the receipt</p>
+        <p>6 After sending, you will receive your Key in a few seconds or minutes</p>
+      `,
+      btnComprar: "Buy Key",
+      txtWhatsapp: "Send receipt via WhatsApp",
+      btnWhatsapp: "Send",
+      txtTelegram: "Send receipt via Telegram",
+      btnTelegram: "Send",
+      arraste: "👆 Swipe to see more"
+    }
+  };
+
+  const t = textos[lang];
+
+  document.getElementById("title").innerText = t.title;
+  document.getElementById("tutorial").innerHTML = t.tutorial;
+  document.getElementById("btnComprar").innerText = t.btnComprar;
+  document.getElementById("txtWhatsapp").innerText = t.txtWhatsapp;
+  document.getElementById("btnWhatsapp").innerText = t.btnWhatsapp;
+  document.getElementById("txtTelegram").innerText = t.txtTelegram;
+  document.getElementById("btnTelegram").innerText = t.btnTelegram;
+  document.getElementById("arraste").innerText = t.arraste;
+
+  // LINKS
+  function comprar() {
+    window.open("https://mpago.la/2ejCTt4", "_blank");
+  }
+
+  function whatsapp() {
+    window.open("https://wa.me/5577991006782", "_blank");
+  }
+
+  function telegram() {
+    window.open("https://t.me/B_devjv", "_blank");
+  }
+
+  // CARROSSEL
+  let index = 0;
+  const images = document.querySelectorAll(".carousel img");
+
+  setInterval(() => {
+    images[index].classList.remove("active");
+    index = (index + 1) % images.length;
+    images[index].classList.add("active");
+  }, 3000);
+</script>
+
+</body>
+</html>

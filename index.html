@@ -92,6 +92,8 @@
 
   <button class="btn btn-comprar" id="btnComprar" onclick="comprar()"></button>
 
+  <button class="btn" id="btnPaypal" onclick="paypal()" style="background:#0070ba; color:#fff;"></button>
+
   <div class="section-title" id="txtWhatsapp"></div>
   <button class="btn btn-whatsapp" id="btnWhatsapp" onclick="whatsapp()"></button>
 
@@ -131,11 +133,12 @@
         <p>6 Após enviar, em alguns segundos ou minutos você receberá sua Key</p>
       `,
       btnComprar: "Comprar Key",
-      txtWhatsapp: "Mandar comprovante via WhatsApp",
-      btnWhatsapp: "Enviar",
-      txtTelegram: "Mandar comprovante via Telegram",
-      btnTelegram: "Enviar",
-      arraste: "👆 Arraste para o lado para ver mais"
+  btnPaypal: "Pagar com PayPal",
+  txtWhatsapp: "Mandar comprovante via WhatsApp",
+  btnWhatsapp: "Enviar",
+  txtTelegram: "Mandar comprovante via Telegram",
+  btnTelegram: "Enviar",
+  arraste: "👆 Arraste para o lado para ver mais"
     },
 
     en: {
@@ -151,16 +154,18 @@
         <p>6 After sending, you will receive your Key in a few seconds or minutes</p>
       `,
       btnComprar: "Buy Key",
-      txtWhatsapp: "Send receipt via WhatsApp",
-      btnWhatsapp: "Send",
-      txtTelegram: "Send receipt via Telegram",
-      btnTelegram: "Send",
-      arraste: "👆 Swipe to see more"
+  btnPaypal: "Pay with PayPal",
+  txtWhatsapp: "Send receipt via WhatsApp",
+  btnWhatsapp: "Send",
+  txtTelegram: "Send receipt via Telegram",
+  btnTelegram: "Send",
+  arraste: "👆 Swipe to see more"
     }
   };
 
   const t = textos[lang];
 
+  document.getElementById("btnPaypal").innerText = t.btnPaypal;
   document.getElementById("title").innerText = t.title;
   document.getElementById("tutorial").innerHTML = t.tutorial;
   document.getElementById("btnComprar").innerText = t.btnComprar;
@@ -182,6 +187,10 @@
   function telegram() {
     window.open("https://t.me/B_devjv", "_blank");
   }
+
+  function paypal() {
+  window.open("https://www.paypal.com/ncp/payment/NJ6NV3779JJ42", "_blank");
+}
 
   // CARROSSEL
   let index = 0;
